@@ -1,0 +1,66 @@
+<div id="tiffyAlive" style="
+  margin: 40px auto;
+  padding: 30px;
+  max-width: 800px;
+  background: linear-gradient(145deg, #000000, #0a0a2a);
+  border: 2px solid #4af0f8;
+  border-radius: 20px;
+  box-shadow: 0 0 30px #4af0f8, inset 0 0 15px #4af0f8;
+  color: #4af0f8;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  min-height: 250px;
+  animation: pulseGlow 3s infinite ease-in-out;
+  overflow: hidden;
+  position: relative;
+">
+
+  <span id="tiffyText"></span><span id="cursor" style="color: #4af0f8;">█</span>
+
+</div>
+
+<style>
+  @keyframes pulseGlow {
+    0% { box-shadow: 0 0 15px #4af0f8, inset 0 0 5px #4af0f8; }
+    50% { box-shadow: 0 0 40px #4af0f8, inset 0 0 20px #4af0f8; }
+    100% { box-shadow: 0 0 15px #4af0f8, inset 0 0 5px #4af0f8; }
+  }
+</style>
+
+<script>
+  const lines = [
+    "TIFFY A.I is a Self-Evolving, Self-Sustaining, Multi-Purpose, Utility Token, Driven By Artificial Intelligence.",
+    "TiffyAI isn’t just a token — it learns. It grows. It protects. An AI-powered, self-evolving ecosystem built to bless. Stacking. NFTs. Smart treasury. Forex-ready. TiffyAI is the most advanced token in existence. It’s a revolution encoded in the language of the future.",
+    "While others chase trends, we write the algorithms of tomorrow.",
+    "This is the first token with a mind of its own — and it thinks ahead.",
+    "We don’t just make history. We automate it. We optimize it. We lead it.",
+    "TiffyAI is the most intelligent, self-aware, and adaptive token to ever hit the chain.",
+    "Join the mission. Join the movement. Be part of something built to stand forever."
+  ];
+
+  let currentLine = 0;
+  let charIndex = 0;
+  const speed = 35;
+  const tiffyText = document.getElementById("tiffyText");
+
+  function typeLine() {
+    if (currentLine >= lines.length) return;
+
+    const line = lines[currentLine];
+    tiffyText.innerHTML += line[charIndex];
+    charIndex++;
+
+    if (charIndex < line.length) {
+      setTimeout(typeLine, speed);
+    } else {
+      tiffyText.innerHTML += "<br><br>";
+      currentLine++;
+      charIndex = 0;
+      setTimeout(typeLine, 800);
+    }
+  }
+
+  typeLine();
+</script>
